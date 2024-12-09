@@ -20,10 +20,12 @@ public class EmployeeInfo {
     private Date date_Of_Joining;
     private Long mobNo;
     private String address;
-    private Long salary;
+    private double salary;
     private boolean isActive;
     private String createdBy;
     private LocalDateTime createdDate;
     private String updatedBy;
     private LocalDateTime updatedDate;
+
+
 }

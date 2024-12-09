@@ -7,15 +7,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Service
 public class EmployeeService {
 
     @Autowired
     EmployeeRepository employeeRepository;
-    public EmployeeInfo addEmployee(EmployeeDto employeeDto) {
+
+        public EmployeeInfo addData(EmployeeDto employeeDto) {
         EmployeeInfo employeeInfo=new EmployeeInfo();
-        employeeInfo.setEmployeeId(0L);
+
+      //  employeeInfo.setEmployeeId(0L);
         employeeInfo.setEmployeeFirstName(employeeDto.getEmployeeFirstName());
         employeeInfo.setEmployeeLastName(employeeDto.getEmployeeLastName());
         employeeInfo.setEmployeeAge(employeeDto.getEmployeeAge());
@@ -30,5 +33,10 @@ public class EmployeeService {
         employeeInfo.setUpdatedBy(employeeDto.getUpdatedBy());
         employeeInfo.setUpdatedDate(LocalDateTime.now());
         return employeeRepository.save(employeeInfo);
+    }
+
+    public List<EmployeeInfo> getAllEmployee() {
+        List<EmployeeInfo> list=employeeRepository.findAll();
+        return list;
     }
 }
